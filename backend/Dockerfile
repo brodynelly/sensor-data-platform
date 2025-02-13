@@ -1,12 +1,20 @@
+# Use Node.js official image
 FROM node:18
 
+# Set working directory
 WORKDIR /app
 
+# Copy package.json and package-lock.json first (for caching)
 COPY package.json package-lock.json ./
-RUN npm install
 
+# Install dependencies
+RUN npm ci
+
+# Copy the rest of the application
 COPY . .
 
-EXPOSE 3000
+# Expose backend port
+EXPOSE 3001
 
+# Command to start backend server
 CMD ["npm", "start"]
