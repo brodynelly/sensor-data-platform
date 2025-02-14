@@ -11,7 +11,7 @@ export const NAV_DATA = [
         items: [],
       },
       {
-        title: "Graphs",
+        title: "Tables",
         icon: Icons.PieChart,
         items: [
           {
@@ -23,14 +23,14 @@ export const NAV_DATA = [
     ],
   },
   {
-    label: "POSTGRES",
+    label: "DATABASE",
     items: [
       {
-        title: "Tables",
+        title: "Graphs",
         icon: Icons.Table,
         items: [
           {
-            title: "Pig Data",
+            title: "Pigs",
             url: "/database/pigs",
           },
         ],

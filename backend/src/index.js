@@ -19,20 +19,20 @@ app.get("/", (req, res) => {
     res.json({ message: "Backend is running on port 3001!" });
 });
 
-// API endpoint to fetch pigs data
-app.get('/api/pigs', async (req, res) => {
-    try {
-      const result = await pool.query('SELECT * FROM pigs');
-      res.json(result.rows);
-    } catch (error) {
-      console.error('Error fetching pigs:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
-
+// Import the pigs routes
+const postureRouter = require("./api/posture");
 const uploadZip = require("./api/upload");
+const pigsRoutes = require('./api/pigs');
+
+
+// use the pig routes in your app
+app.use('/api/pigs', pigsRoutes);
 app.use("/api/upload", uploadZip);
+app.use("/api/posture", postureRouter);
 
 // Start server
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+});

@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Command to run Next.js app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

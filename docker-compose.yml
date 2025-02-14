@@ -8,8 +8,8 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./backend:/app
-      - /app/node_modules
+      - ./backend:/src
+      - /node_modules
     environment:
       - NODE_ENV=production
 
